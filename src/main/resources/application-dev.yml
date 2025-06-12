@@ -1,0 +1,48 @@
+server:
+  port: 9757
+
+# H2 connection
+spring:
+  datasource:
+    url=: jdbc:h2:mem:weblogdb
+    username: sa
+    password:
+
+  kafka:
+    bootstrap-servers: 172.31.40.1:9092
+    properties:
+      security.protocol: PLAINTEXT
+    consumer:
+      group-id: kafka-home-lab
+      auto-offset-reset: earliest
+    producer:
+      retries: 3
+      # noinspection SpellCheckingInspection
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+# H2 client
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+  # Show SQL
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.web: DEBUG
+
+
