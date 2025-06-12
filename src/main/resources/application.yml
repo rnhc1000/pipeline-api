@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: pipeline-api
+  profiles:
+    active: ${APP_PROFILE:dev}
