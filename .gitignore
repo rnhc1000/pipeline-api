@@ -16,8 +16,9 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+*.jar
 
-### IntelliJ IDEA ###
+## IntelliJ IDEA ###
 .idea
 *.iws
 *.iml

@@ -1,8 +1,13 @@
 package br.dev.ferreiras.pipeline_api.controller;
 
+import br.dev.ferreiras.pipeline_api.dto.ClickEventDto;
 import br.dev.ferreiras.pipeline_api.dto.UserDataDto;
 import br.dev.ferreiras.pipeline_api.dto.WebLogEvent;
 import br.dev.ferreiras.pipeline_api.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +26,15 @@ public class WebLogController {
 
     private static final Logger logger = LoggerFactory.getLogger(WebLogController.class);
 
+    @Operation (
+    summary = "Collect events performed by an user, such as clicks, data, etc ",
+    description = "Putting in place a baseline to collect web analytics ",
+    responses = {
+        @ApiResponse(responseCode = "201", description = "Events processed", content = @Content(mediaType = "application/json",
+                schema = @Schema(implementation = ClickEventDto.class))),
+        @ApiResponse(responseCode = "401", description = "Not authorized!", content = @Content),
+        @ApiResponse(responseCode = "422", description = "Operation not allowed!", content = @Content),
+    })
     @PostMapping("/click")
     public ResponseEntity<Void> getActions(@RequestBody WebLogEvent webLogEvent) {
 

@@ -2,6 +2,7 @@ package br.dev.ferreiras.pipeline_api.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.*;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.support.serializer.JsonSerializer;
@@ -13,7 +14,7 @@ import java.util.Map;
 public class KafkaProducerConfig {
 
     @Bean
-    public ProducerFactory<String, Object> producerFactory() {
+    public ProducerFactory<@NotNull String, @NotNull Object> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
 
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.31.40.1:9092");
@@ -26,7 +27,8 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, Object> kafkaTemplate() {
+    public KafkaTemplate<@NotNull String, @NotNull Object> kafkaTemplate() {
+
         return new KafkaTemplate<>(producerFactory());
     }
 }

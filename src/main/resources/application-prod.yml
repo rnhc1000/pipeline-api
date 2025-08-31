@@ -45,6 +45,4 @@ logging:
     org.springframework: INFO
     org.springframework.web: DEBUG
 
-springdoc:
-  api-docs:
-    path: /api-docs
+

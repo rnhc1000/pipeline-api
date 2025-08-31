@@ -27,6 +27,7 @@ public class WebLogCors implements WebMvcConfigurer {
             public void addCorsMappings(@NonNull final CorsRegistry corsRegistry) {
                 corsRegistry.addMapping("/**")
                         .allowedOrigins(
+                                "http://192.168.0.9",
                                 "http://192.168.0.18:8000",
                                 "http://localhost:8000",
                                 "http://127.0.0.1:8000"

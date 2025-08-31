@@ -21,10 +21,8 @@ public class ClickEventConsumer {
 
     private final ObjectMapper objectMapper;
 
-    public ClickEventConsumer() {
-        this.objectMapper = new ObjectMapper()
-                .registerModule(new JavaTimeModule())
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    public ClickEventConsumer(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
     }
 
     @KafkaListener(topics = "click-events", groupId = "click-event-group")
