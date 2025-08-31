@@ -1,8 +1,12 @@
 ## _Pipelining Data from a Web Page_ <br />
-When dealing with events, in order to get my hans dirty and understand how to build an application to collect analytics 
-data from a web page, so to make sure each button clicked generates an event and this event be consumed by an API that 
-has a Kafka broker attached and persisting these data to a AWS S3-like object storage and Spark. a front-end application
-was built in order to generate the events to simulate a user surfing in a web page and collecting some data. Hopefully this
+When dealing with events, in order to get my hands dirty and understand how to build an application that collect analytics 
+data from a web page, where each button clicked or an input field has been filled in or a mouse move has been done, to 
+generates an event and this event be consumed by an API that has a Kafka broker attached and persisting these data to a 
+AWS S3-like object storage, partitioned by hour through a Spark processing and having this data available through Hive SQL 
+tables. 
+<br />
+A front-end application was built <a href="https:github.com/rnhc1000/pipeline-ui" target="_blank">pipeline-ui</a> in order 
+to generate the events to emulate a user surfing in a web page and collecting some data. Hopefully this
 codebase can help someone to better understand how a pipeline is built under the hood.
 
 ## _Table of contents_
@@ -28,7 +32,7 @@ codebase can help someone to better understand how a pipeline is built under the
 There are some specific requirements to be met, such as authentication and authorization, data persistence, 
 paginated data recovery, authenticated access to endpoints and some other requirements.<br />
 <br />
-The app has been coded using Java 21, Spring Boot 3.3.5, Gradle, Javadoc, Spring Security, Spring JPA, Spring Webflux,
+The app has been coded using ReactJS, TypeScript, Java 21, Spring Boot 3.3.5, Gradle, Javadoc, Spring Security, Spring JPA,
 Spark, Kafka, Minio,  OpenAPI, PostgresSQL, Docker and hosted in an AWS EC2 instance with secure access provided
 by a NGINX SSL proxy reverse and being live at <a href="https://pipeline.ferreiras.dev.br" target="_blank">Pipeline</a> <br />
 <br />
@@ -75,7 +79,7 @@ by a NGINX SSL proxy reverse and being live at <a href="https://pipeline.ferreir
 
 ## _Screenshot_
 
-[![](./webCalculator.png)]()
+[![](./pipeline-api.png)]()
 
 ## _Links_
 

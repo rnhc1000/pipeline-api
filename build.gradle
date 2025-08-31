@@ -17,6 +17,10 @@ repositories {
 	mavenCentral()
 }
 
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -27,6 +31,18 @@ dependencies {
 	implementation("org.springframework.kafka:spring-kafka:4.0.0-M2")
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
 	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.0")
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6")
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation("org.postgresql:postgresql:42.7.7")
+	// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
+	implementation("org.apache.spark:spark-sql_2.12:3.5.5")
+	// https://mvnrepository.com/artifact/org.apache.spark/spark-sql-kafka-0-10
+	implementation("org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5")
+	implementation "org.apache.hadoop:hadoop-aws:3.3.4"        // Match with Spark’s Hadoop version
+	implementation "com.amazonaws:aws-java-sdk-bundle:1.12.262" // Compatible with Hadoop 3.3.4
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+//    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.0-M1")
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

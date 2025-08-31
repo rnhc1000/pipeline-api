@@ -23,10 +23,8 @@ public class ClickEventKafkaProducer {
 
     private static final Logger logger = LoggerFactory.getLogger(ClickEventKafkaProducer.class);
 
-    public ClickEventKafkaProducer() {
-        this.objectMapper = new ObjectMapper()
-                .registerModule(new JavaTimeModule())
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    public ClickEventKafkaProducer(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
 
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.31.40.1:9092");

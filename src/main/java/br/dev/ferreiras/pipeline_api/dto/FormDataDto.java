@@ -40,4 +40,14 @@ public class FormDataDto {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    @Override
+    public String toString() {
+        return "FormDataDto{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
