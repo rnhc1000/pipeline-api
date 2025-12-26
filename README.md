@@ -83,7 +83,7 @@ by a NGINX SSL proxy reverse and being live at <a href="https://pipeline.ferreir
 
 ## _Links_
 
-- Live Site URL: <a href="https://pipeine.ferreiras.dev.br" target="_blank">Pipeline</a>
+- Live Site URL: <a href="https://pipeline.ferreiras.dev.br" target="_blank">Pipeline</a>
 
 ## _Built with_
 
@@ -171,7 +171,7 @@ Outcome...
 
 - Unit Tests - TBD
 - Subscriber Authentication - TBD
-    - Spring JWT-OAuth2 - TBD
+- Spring JWT-OAuth2 - TBD
 - Records Pagination - TBD
 
 ### _Useful resources_
